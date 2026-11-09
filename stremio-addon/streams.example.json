@@ -1,0 +1,14 @@
+{
+  "tt0133093": [
+    {
+      "url": "https://example.com/your-authorized-video.m3u8",
+      "title": "1080p • HLS"
+    }
+  ],
+  "tt0903747:1:1": [
+    {
+      "url": "https://example.com/your-authorized-episode.mp4",
+      "title": "1080p • MP4"
+    }
+  ]
+}
