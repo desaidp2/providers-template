@@ -12,7 +12,7 @@ function isAllowedLicense(value) {
 }
 
 function isVideoFile(name) {
-  if (typeof name !== 'string') return false;
+  if (typeof name !== 'string' || name.includes('..') || name.includes('/') || name.includes('\\\\')) return false;
   const ext = name.split('.').pop().toLowerCase();
   return VIDEO_EXTENSIONS.has(ext);
 }
