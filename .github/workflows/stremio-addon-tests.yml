@@ -1,0 +1,31 @@
+name: Stremio addon checks
+
+on:
+  push:
+    branches: [stremio-addon-bootstrap]
+    paths:
+      - "stremio-addon/**"
+      - ".github/workflows/stremio-addon-tests.yml"
+  pull_request:
+    paths:
+      - "stremio-addon/**"
+      - ".github/workflows/stremio-addon-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: stremio-addon
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npm test
