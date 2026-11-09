@@ -1,0 +1,21 @@
+name: Stremio addon checks
+on:
+  push:
+    branches: [main, stremio-unified-addon]
+    paths: ['stremio-addon/**', '.github/workflows/stremio-addon-tests.yml']
+  pull_request:
+    paths: ['stremio-addon/**', '.github/workflows/stremio-addon-tests.yml']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install
+        working-directory: stremio-addon
+        run: npm install
+      - name: Unit tests
+        working-directory: stremio-addon
+        run: npm test

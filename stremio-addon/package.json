@@ -1,0 +1,10 @@
+{
+  "name": "vega-unified-stremio-addon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Stremio addon for public-domain and Creative Commons video sources",
+  "main": "index.js",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node index.js", "test": "node --test" },
+  "dependencies": { "stremio-addon-sdk": "^1.6.10" }
+}
