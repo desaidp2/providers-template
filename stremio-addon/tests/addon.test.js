@@ -14,7 +14,8 @@ test('recognizes supported video extensions case-insensitively', () => {
   assert.equal(isVideoFile('movie.MP4'), true);
   assert.equal(isVideoFile('movie.webm'), true);
   assert.equal(isVideoFile('cover.jpg'), false);
-  assert.equal(isVideoFile('../movie.mp4'), true);
+  assert.equal(isVideoFile('../movie.mp4'), false);
+  assert.equal(isVideoFile('folder\\\\movie.mp4'), false);
 });
 
 test('builds safe encoded Archive download URLs and rejects invalid identifiers', () => {
